@@ -1,0 +1,27 @@
+def poolish_notation():
+    operator_list = ['+', '-', '*', '/']
+    operator, number1, number2 = input('Введите значение \n').split()
+    number1 = int(number1)
+    number2 = int(number2)
+    result = ''
+    if operator not in operator_list:
+        print('Введен неизвестный оператор')
+    try:
+        assert number1 >= 0 and number2 >= 0
+    except AssertionError:
+        print('Введено отрицательное число')
+    if operator == '+':
+        result = number1 + number2
+    elif operator == '-':
+        result = number1 - number2
+    elif operator == '*':
+        result = number1 * number2
+    elif operator == '/':
+        try:
+            result = number1 / number2
+        except ZeroDivisionError:
+            print('Деление на 0')
+
+    print(result)
+
+poolish_notation()
